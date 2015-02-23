@@ -1,6 +1,6 @@
 Product.delete_all
-Product.create(
-    title: 'Заголовок',
+Product.create!(
+    title: 'Самый первый товар',
     description:
     %{<p>
         Описание товара... Длинное длинное...

@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>DepotA</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body class="<%= controller.controller_name %>">
-
-<%= yield %>
-
-</body>
+	<head>
+		<title>Ruby test</title>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body class="<%= controller.controller_name %>">
+		<div id="banner">
+			<%= image_tag("ruby.jpg") %>
+			<%= @page_title || "Тестовый магазин" %>
+		</div>
+		<div id="columns">
+			<div id="side">
+				<ul>
+					<li><a href="/">Главная</a></li>
+					<li><a href="/faq">Вопросы</a></li>
+					<li><a href="/news">Новости</a></li>
+					<li><a href="/contact">КОнтакты</a></li>
+				</ul>
+			</div>
+			<div id="main">
+				<%= yield %>
+			</div>
+		</div>
+	</body>
 </html>

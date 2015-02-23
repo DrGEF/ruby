@@ -8,8 +8,8 @@
 		<%= image_tag(product.image_url) %>
 		<h3><%= product.title%></h3>
 		<%= sanitize(product.description) %>
-			<div class="price_lines">
-				<span class="price"><%= product.price%></span>
+			<div class="price_line">
+				<span class="price"><%= number_to_currency(product.price, unit: "руб.", format: "%n %u") %></span>
 			</div>
 	</div>
 <% end %>
