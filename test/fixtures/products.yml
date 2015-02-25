@@ -12,7 +12,7 @@ two:
   image_url: MyString
   price: 9.99
 ruby:
-  title: ruby prog olololo
+  title: какое-то название
   description: ruby desc
-  image_url: ruby.png
   price: 9.99
+  image_url: ruby.png
