@@ -5,7 +5,10 @@ class Product < ActiveRecord::Base
   validates_length_of :title, minimum: 10, massage: 'Заголовок должен быть больше 10 симоволов'
 
   validates :image_url, allow_blank: true, format: {
-                          with: %r{\.(gif|jpg|png)\Z}i,
-                          massage: 'Url должен указывать на изображение в формате jpg,png или gif.'
-                      }
+    with: %r{\.(gif|jpg|png)\Z}i,
+    massage: 'Url должен указывать на изображение в формате jpg,png или gif.'
+  }
+  def self.latest
+    Product.order(:updated_at).last
+  end
 end
