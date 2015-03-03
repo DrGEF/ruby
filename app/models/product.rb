@@ -19,4 +19,6 @@ class Product < ActiveRecord::Base
     else
       errors.add(:base, 'существуют товарные позиции')
       return false
+    end
+  end
 end
