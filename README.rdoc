@@ -1,2 +1,4 @@
-==Ruby depot
+==Ruby project
+
+=just some small site
 
