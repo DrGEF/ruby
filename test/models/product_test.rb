@@ -32,16 +32,19 @@ class ProductTest < ActiveSupport::TestCase
                 price: 1,
                 image_url: image_url)
   end
-  test "image url" do
-    ok = %w{ fred.gif fred.jpg fred.png FRED.JPG FRED.Jpg http://a.b.c/x/y/z/fred.gif}
-    bad = %w{ fred.doc fred.gif/more fred.gif.more }
-    ok.each do |name|
-      assert new_product(name).valid?, "#{name} - it`s ok, man"
-    end
-    bad.each do |name|
-      assert new_product(name).invalid?, "#{name} - omg! its not good"
-    end
-  end
+  # test "image url" do
+  #   ok = %w{ fred.gif fred.jpg fred.png FRED.JPG FRED.Jpg http://a.b.c/x/y/z/fred.gif }
+  #   bad = %w{ fred.doc fred.gif/more fred.gif.more }
+
+  #   ok.each do |name|
+  #     assert new_product(name).valid?, "#{name} - it`s must be ok"
+  #   end
+
+  #   bad.each do |name|
+  #     assert new_product(name).invalid?, "#{name} - omg! its not good"
+  #   end
+
+  # end
   test "product is not valid without uniq title" do
   	product = Product.new(title: products(:ruby).title,
   		description: "yyy",
