@@ -7,3 +7,4 @@
 	<li><%= item.quantity %> &times; <%= item.product.title%></li>
 	<% end %>
 </ul>
+<%= button_to 'Опустошить корзину', @cart, method: :delete, data: {confirm: 'Вы уверены?'} %>
