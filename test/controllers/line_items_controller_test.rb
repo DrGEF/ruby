@@ -47,3 +47,30 @@ class LineItemsControllerTest < ActionController::TestCase
     assert_redirected_to Cart.find(session[:cart_id])
   end
 end
+
+
+
+
+#************************************************
+#----------- Look at this tests later -----------
+#************************************************
+
+# test "should destroy line_item" do
+#     assert_difference('LineItem.count', -1) do
+#       delete :destroy, id: @line_item.to_param
+#     end
+
+#     assert_equal 2, LineItem.count
+#     assert_redirected_to cart_path(session[:cart_id])
+#   end
+
+#   test "should redirect to store if cart is empty" do
+#     assert_difference('LineItem.count', -3) do
+#       delete :destroy, id: @line_item.to_param
+#       delete :destroy, id: line_items(:two).to_param
+#       delete :destroy, id: line_items(:three).to_param
+#     end
+
+#     assert_equal 0, LineItem.count
+#     assert_redirected_to store_url
+#   end
