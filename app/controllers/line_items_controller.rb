@@ -66,7 +66,7 @@ class LineItemsController < ApplicationController
     @line_item.destroy
 
     respond_to do |format|
-      format.html { redirect_to cart_url(session[:cart_id]), notice: 'Товарная позиция успешно удалена' }
+      format.html { redirect_to cart_url(session[:cart_id]), notice: 'Товарная позиция успешно удалена' } # or it can be @line_item.cart
       format.json { head :no_content }
     end
   end
