@@ -40,16 +40,16 @@ class LineItemsControllerTest < ActionController::TestCase
   end
 
   test "should destroy line_item" do
-    @line_item = line_items(:one)
-    @cart = carts(:one)
-    assert_difference('LineItem.count', -1) do
+    @cart = Cart.new
+    assert_difference('LineItem.count', 0) do
+      post :create, product_id: products(:one).id
       delete :destroy, id: @line_item.to_param
     end
-    # if @cart.line_items.count.zero?
-    #   assert_redirected_to store_url
-    # else
-    #   assert_redirected_to cart_path(@cart.id)
-    # end
+    if line_items.count.zero?
+      assert_redirected_to cart_path(session[:cart_id]) # как-то криво...
+    else
+      assert_redirected_to store_url
+    end
   end
 end
 
