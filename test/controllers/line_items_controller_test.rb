@@ -48,7 +48,7 @@ class LineItemsControllerTest < ActionController::TestCase
     if line_items.count.zero?
       assert_redirected_to cart_path(session[:cart_id]) # как-то криво...
     else
-      assert_redirected_to store_url
+      assert_redirected_to store_url                    # кажется это должно быть в строке 49 
     end
   end
 end
