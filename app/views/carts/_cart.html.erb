@@ -1,0 +1,10 @@
+	<h2>Ваша корзина</h2>
+	<table>
+		<%= render(@cart.line_items) %>
+
+		<tr class="total_line">
+			<td colspan="2">Итого</td>
+			<td class="total_cell"><%= @cart.total_price.to_s + " руб." %></td>
+		</tr>
+	</table>
+	<%= button_to 'Удалить все наименования', @cart, method: :delete, data: {confirm: 'Вы уверены?'} %>	

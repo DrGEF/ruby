@@ -1,0 +1,6 @@
+<tr>
+	<td><%= line_item.quantity %> &times;</td>
+	<td><%= line_item.product.title%></td>
+	<td class="item_price"><%= line_item.total_price.to_s + " руб." %></td>
+	<td><%= button_to 'Удалить', line_item, method: :delete %></td>
+</tr>

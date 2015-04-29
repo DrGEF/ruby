@@ -2,23 +2,7 @@
 <p id="notice"><%= notice%></p>
 <% end %>
 <% if @cart.line_items.any? %>
-	<h2>Ваша корзина</h2>
-	<table>
-		<% @cart.line_items.each do |item| %>
-		<tr>
-			<td><%= item.quantity %> &times;</td>
-			<td><%= item.product.title%></td>
-			<td class="item_price"><%= item.total_price.to_s + " руб." %></td>
-			<td><%= button_to 'Удалить', item, method: :delete %></td>
-		</tr>
-		<% end %>
-
-		<tr class="total_line">
-			<td colspan="2">Итого</td>
-			<td class="total_cell"><%= @cart.total_price.to_s + " руб." %></td>
-		</tr>
-	</table>
-	<%= button_to 'Удалить все наименования', @cart, method: :delete, data: {confirm: 'Вы уверены?'} %>
+	<%= render @cart %>
 <% else %>
 	<h2>Ваша корзина пуста :(</h2>
 	<p>Можно в нее что-нибудь <%= link_to "добавить", store_path %></p>
