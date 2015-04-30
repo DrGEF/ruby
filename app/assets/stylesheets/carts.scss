@@ -3,6 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .carts, #side #cart{
+	tr{
+		padding: 1em;
+	}
 	.item_price, .total_line{
 		text-align: right;
 	}
