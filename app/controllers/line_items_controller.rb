@@ -70,7 +70,7 @@ class LineItemsController < ApplicationController
         format.html { redirect_to store_url, notice: 'В вашей корзине больше не осталось товарных позиций' }
         format.json { head :no_content }
       else
-        format.html { redirect_to cart_path(session[:cart_id]), notice: 'Товарная позиция успешно удалена' } # or it can be @line_item.cart
+        format.html { redirect_to store_url} # or it can be @line_item.cart
         format.json { head :no_content }
       end
     end

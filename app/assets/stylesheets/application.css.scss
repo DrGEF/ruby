@@ -39,14 +39,15 @@
 #columns {
     background: #141;
     #main {
-        margin-left: 30%;
+        margin-left: 32%;
         padding: 1em;
         background: white;
     }
     #side{
 		float: left;
-		padding: 1em 2em;
+		padding: 1em 1%;
 		background: #141;
+        max-width: 30%;
         
         form,div{
             display: inline;
@@ -57,12 +58,20 @@
         #cart{
             font-size: smaller;
             color: white;
+            display: block;
             
             table{
                 border-top: 1px dotted #595;
                 border-bottom: 1px dotted #595;
                 margin-bottom: 10px;
             }
+        }
+        #cart, tr {
+            -webkit-transition: all 0.4s;
+               -moz-transition: all 0.4s;
+                -ms-transition: all 0.4s;
+                 -o-transition: all 0.4s;
+                    transition: all 0.4s;
         }
 
 		ul{

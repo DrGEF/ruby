@@ -1,4 +1,3 @@
-	<% unless cart.line_items.empty? %>
 	<h2>Ваша корзина</h2>
 	<table>
 		<%= render(@cart.line_items) %>
@@ -9,4 +8,3 @@
 		</tr>
 	</table>
 	<%= button_to 'Удалить все наименования', @cart, method: :delete, data: {confirm: 'Вы уверены?'} %>	
-	<% end %>
