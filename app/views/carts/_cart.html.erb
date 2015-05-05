@@ -7,4 +7,4 @@
 			<td class="total_cell"><%= @cart.total_price.to_s + " руб." %></td>
 		</tr>
 	</table>
-	<%= button_to 'Удалить все наименования', @cart, method: :delete, data: {confirm: 'Вы уверены?'} %>	
+	<%= button_to 'Удалить все наименования', @cart, method: :delete, remote: true%>	

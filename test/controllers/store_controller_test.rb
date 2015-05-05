@@ -6,7 +6,13 @@ class StoreControllerTest < ActionController::TestCase
     assert_response :success
     assert_select '#columns #side a', minimum: 4
     assert_select '#main .entry', 3
-    assert_select 'h3', 'какое-то название'
+    assert_select 'h3', 'Test ruby in test'
+  end
+
+  test "markup needed for store.coffee is in place" do
+  	get :index
+  	assert_select '.store .entry > img', 3
+  	assert_select '.entry input[type=submit]', 3
   end
 
 end
