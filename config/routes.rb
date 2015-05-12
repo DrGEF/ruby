@@ -61,4 +61,11 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  # кнопка меньше для корзины
+  resources :line_items do
+    put 'decrement', on: :member
+  end
+  resources :line_items do
+    put 'increment', on: :member
+  end
 end
