@@ -22,8 +22,18 @@
 					<li><a href="/">Главная</a></li>
 					<li><a href="/faq">Вопросы</a></li>
 					<li><a href="/news">Новости</a></li>
-					<li><a href="/contact">КОнтакты</a></li>
+					<li><a href="/contact">Контакты</a></li>
 				</ul>
+
+				<% if session[:user_id] %>
+					<ul>
+						<li><%= link_to "Заказы", orders_path %></li>
+						<li><%= link_to "Товары", products_path %></li>
+						<li><%= link_to "Пользователя", users_path %></li>
+					</ul>
+					<%= button_to 'Выйти', logout_path, method: :delete %>
+				<% end %>
+
 			</div>
 			<div id="main">
 				<%= yield %>
