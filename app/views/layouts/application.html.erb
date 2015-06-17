@@ -23,13 +23,16 @@
 					<li><a href="/faq">Вопросы</a></li>
 					<li><a href="/news">Новости</a></li>
 					<li><a href="/contact">Контакты</a></li>
+					<% unless session[:user_id] %>
+					<li><%= link_to "Вход", login_path %></li>
+					<% end %>
 				</ul>
 
 				<% if session[:user_id] %>
 					<ul>
 						<li><%= link_to "Заказы", orders_path %></li>
 						<li><%= link_to "Товары", products_path %></li>
-						<li><%= link_to "Пользователя", users_path %></li>
+						<li><%= link_to "Пользователи", users_path %></li>
 					</ul>
 					<%= button_to 'Выйти', logout_path, method: :delete %>
 				<% end %>

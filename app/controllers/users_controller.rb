@@ -19,6 +19,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+
   end
 
   # POST /users
@@ -28,7 +29,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to users_url, notice: 'Пользователь #{@user.name} успешно созда!' }
+        format.html { redirect_to users_url, notice: 'Пользователь #{@user.name} успешно создан!' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -40,11 +41,13 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    @old_pass = params[:user].delete(:old_pass)
     respond_to do |format|
-      if @user.update(user_params)
+      if @user.update(user_params) && @user.authenticate(@old_pass)
         format.html { redirect_to users_url, notice: 'Сведения о пользователе #{@user.name} успешно обновлены' }
         format.json { render :show, status: :ok, location: @user }
       else
+        @user.errors.add(:old_pass, 'Текущий пароль указан неверно') unless @user.authenticate(@old_pass)
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
@@ -54,7 +57,12 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user.destroy
+    begin
+      @user.destroy
+      flash[:notice] = "Пользователь #{@user.name} удален"
+    rescue StandardError => e 
+      flash[:notice] = e.message
+    end
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }

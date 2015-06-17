@@ -16,6 +16,12 @@
       <%= f.label "Имя" %><br>
       <%= f.text_field :name %>
     </div>
+    <% if params[:action] == 'edit' || params[:action] == 'update' %>
+    <div class="field">
+      <%= f.label "Старый пароль" %><br>
+      <%= f.password_field :old_pass %>
+    </div>
+    <% end %>
     <div class="field">
       <%= f.label "Пароль" %><br>
       <%= f.password_field :password %>
