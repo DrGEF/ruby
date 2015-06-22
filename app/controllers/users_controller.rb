@@ -43,11 +43,11 @@ class UsersController < ApplicationController
   def update
     @old_pass = params[:user].delete(:old_pass)
     respond_to do |format|
-      if @user.update(user_params) && @user.authenticate(@old_pass)
+      if @user.update(user_params)
         format.html { redirect_to users_url, notice: 'Сведения о пользователе #{@user.name} успешно обновлены' }
         format.json { render :show, status: :ok, location: @user }
       else
-        @user.errors.add(:old_pass, 'Текущий пароль указан неверно') unless @user.authenticate(@old_pass)
+        @user.errors.add(:old_pass, 'Текущий пароль указан неверно' + @old_pass)
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end

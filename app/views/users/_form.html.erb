@@ -18,16 +18,16 @@
     </div>
     <% if params[:action] == 'edit' || params[:action] == 'update' %>
     <div class="field">
-      <%= f.label "Старый пароль" %><br>
+      <%= f.label :old_pass, "Старый пароль" %><br>
       <%= f.password_field :old_pass %>
     </div>
     <% end %>
     <div class="field">
-      <%= f.label "Пароль" %><br>
+      <%= f.label :password, "Пароль" %><br>
       <%= f.password_field :password %>
     </div>
     <div class="field">
-      <%= f.label "Еще раз" %><br>
+      <%= f.label :password_confirmation, "Еще раз" %><br>
       <%= f.password_field :password_confirmation %>
     </div>
     <div class="actions">
