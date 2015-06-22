@@ -57,4 +57,11 @@ class OrdersControllerTest < ActionController::TestCase
 
     assert_redirected_to orders_path
   end
+
+  test "shouldn`t redirect to admin page" do
+    logout
+    get :index
+    assert_response :redirect
+  end
+
 end
